@@ -25,7 +25,7 @@ Sistema web integral para la **Clínica Dental Sonrisas** que combina un sitio p
 5. [Requerimientos](#-requerimientos)
 6. [Instalación](#-instalación)
    - [Ambiente de desarrollo](#ambiente-de-desarrollo)
-   - [Ejecución de pruebas](#ejecución-de-pruebas-manuales)
+   - [Ejecución de pruebas](#ejecución-de-pruebas-manualmente)
    - [Despliegue en producción](#despliegue-en-producción)
 7. [Configuración](#-configuración)
 8. [Uso](#-uso)
@@ -38,12 +38,12 @@ Sistema web integral para la **Clínica Dental Sonrisas** que combina un sitio p
 
 ---
 
-## Descripción
+## 📖 Descripción
 
 **CitasSonrisas** es una plataforma web de dos capas diseñada para digitalizar la operación de la Clínica Dental Sonrisas:
 
 | Capa | Tecnología | Propósito |
-|------|-----------|-----------|
+|------|-----------|-----------| 
 | **Sitio público** | HTML5, Tailwind CSS, JavaScript ES6+, Google Apps Script | Página institucional + agendamiento de citas en línea sin costo de infraestructura |
 | **Portal de pacientes** | PHP 7+ MVC, MySQL, PDO, Bootstrap | Gestión completa de citas, doctores, consultorios y usuarios para la clínica |
 
@@ -51,7 +51,7 @@ El sistema gestiona citas en estados `pendiente → confirmada → cancelada →
 
 ---
 
-## Problema Identificado
+## 🔍 Problema Identificado
 
 La clínica operaba con métodos manuales que generaban fricciones críticas:
 
@@ -64,7 +64,7 @@ La clínica operaba con métodos manuales que generaban fricciones críticas:
 
 ---
 
-## Solución
+## 💡 Solución
 
 Se desarrolló una plataforma web que resuelve cada punto crítico:
 
@@ -117,7 +117,7 @@ El sistema sigue un patrón **MVC de 5 capas** para el portal PHP y una arquitec
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Stack tecnológico 
+### Stack tecnológico
 
 | Componente | Tecnología | Versión mínima |
 |-----------|-----------|---------------|
@@ -134,6 +134,7 @@ El sistema sigue un patrón **MVC de 5 capas** para el portal PHP y una arquitec
 | Control de versiones | Git | 2.30+ |
 | Runtime de pruebas | Node.js | 18.x LTS |
 
+---
 
 ## ⚙️ Requerimientos
 
@@ -152,20 +153,20 @@ El sistema sigue un patrón **MVC de 5 capas** para el portal PHP y una arquitec
 
 - **Git 2.30+**
 - **Node.js 18.x LTS** (para Playwright)
-- **Docker 20.10+** y **Docker Compose 2.x** 
+- **Docker 20.10+** y **Docker Compose 2.x**
 
 ### Paquetes / dependencias adicionales
 
-| Paquete                        | Uso                              | Instalación                      |
-|--------------------------------|----------------------------------|----------------------------------|
-| `google/recaptcha`             | Validación de formularios        | Incluido en `vendor/` (Composer) |
-| `ReCaptcha\RequestMethod\Curl` | Wrapper cURL para reCAPTCHA      | Incluido (`Curl.php`)            |
-| Playwright                     | Tests E2E automatizados          | `npx playwright install`         |
-| PHPMailer / SMTP lib           | Envío de correos via MailService | Incluido en `vendor/`            |
+| Paquete | Uso | Instalación |
+|---------|-----|-------------|
+| `google/recaptcha` | Validación de formularios | Incluido en `vendor/` (Composer) |
+| `ReCaptcha\RequestMethod\Curl` | Wrapper cURL para reCAPTCHA | Incluido (`Curl.php`) |
+| Playwright | Tests E2E automatizados | `npx playwright install` |
+| PHPMailer / SMTP lib | Envío de correos via MailService | Incluido en `vendor/` |
 
 ---
 
-## Instalación
+## 🚀 Instalación
 
 ### Ambiente de desarrollo
 
@@ -176,7 +177,7 @@ El sistema sigue un patrón **MVC de 5 capas** para el portal PHP y una arquitec
 git clone https://github.com/QuorbitIntelligence/SonrisaNorte.git
 cd SonrisaNorte
 
-# 2. Script de instalación automática (verifica dependencias, instala Node modules y Playwright)
+# 2. Script de instalación automática
 chmod +x install.sh
 ./install.sh
 
@@ -259,18 +260,18 @@ npx playwright show-report
 
 Los tests cubren:
 
-| # | Test             | Funcionalidad validada |
-|---|------------------|----------------------|
-| 1 | Homepage Load    | Sitio carga con título correcto |
-| 2 | Navigation       | Navbar presente y visible |
-| 3 | Agendar Button   | Botón principal existe y es clickeable |
-| 4 | Modal Opening    | Modal de citas se abre correctamente |
-| 5 | Form Fields      | Todos los campos del formulario presentes |
+| # | Test | Funcionalidad validada |
+|---|------|----------------------|
+| 1 | Homepage Load | Sitio carga con título correcto |
+| 2 | Navigation | Navbar presente y visible |
+| 3 | Agendar Button | Botón principal existe y es clickeable |
+| 4 | Modal Opening | Modal de citas se abre correctamente |
+| 5 | Form Fields | Todos los campos del formulario presentes |
 | 6 | Services Display | 6 servicios dentales mostrados |
-| 7 | Contact Form     | Formulario de contacto presente |
-| 8 | WhatsApp Button  | Botón flotante de WhatsApp visible |
-| 9 | Footer Content   | Footer con información correcta |
-| 10 | Version Check   | Versión v3.5 o superior |
+| 7 | Contact Form | Formulario de contacto presente |
+| 8 | WhatsApp Button | Botón flotante de WhatsApp visible |
+| 9 | Footer Content | Footer con información correcta |
+| 10 | Version Check | Versión v3.5 o superior |
 
 ---
 
@@ -289,7 +290,7 @@ git push origin main
 #### Servidor propio / VPS (portal PHP)
 
 ```bash
-# 1. Subir el código al servidor (FTP, rsync, etc.)
+# 1. Subir el código al servidor
 rsync -avz site/ usuario@servidor:/var/www/html/
 
 # 2. En el servidor, importar el esquema SQL
@@ -317,28 +318,28 @@ docker-compose -f docker-compose.yml up -d
 
 ---
 
-## Configuración
+## 🔧 Configuración
 
 ### Archivos de configuración principales
 
-| Archivo                                            | Propósito                                                      |
-|----------------------------------------------------|----------------------------------------------------------------|
-| `site/pacientes/config/config.php`                 | Zona horaria, `WEB_BASE`, `SITE_BASE_URL`, duración de citas   |
-| `site/pacientes/config/database.local.php`         | Credenciales de base de datos (**no versionar**)               |
-| `site/pacientes/config/database.local.php.example` | Plantilla de credenciales                                      |
-| `index.html`                                       | Constante `URL_API_CITAS` con endpoint de Google Apps Script   |
-| `Dockerfile`                                       | Imagen base `nginx:alpine`, headers de seguridad, health check |
-| `docker-compose.yml`                               | Puertos, volúmenes, redes, política de restart                 |
-| `.github/workflows/deploy.yml`                     | Pipeline de deploy a GitHub Pages                              |
-| `.github/workflows/tests.yml`                      | Pipeline de tests E2E (schedule diario 9 AM UTC)               | 
+| Archivo | Propósito |
+|---------|-----------|
+| `site/pacientes/config/config.php` | Zona horaria, `WEB_BASE`, `SITE_BASE_URL`, duración de citas |
+| `site/pacientes/config/database.local.php` | Credenciales de base de datos (**no versionar**) |
+| `site/pacientes/config/database.local.php.example` | Plantilla de credenciales |
+| `index.html` | Constante `URL_API_CITAS` con endpoint de Google Apps Script |
+| `Dockerfile` | Imagen base `nginx:alpine`, headers de seguridad, health check |
+| `docker-compose.yml` | Puertos, volúmenes, redes, política de restart |
+| `.github/workflows/deploy.yml` | Pipeline de deploy a GitHub Pages |
+| `.github/workflows/tests.yml` | Pipeline de tests E2E (schedule diario 9 AM UTC) |
 
 ### Variables clave en `config.php`
 
 ```php
 define('WEB_BASE', 'demos/sonrisas/site/pacientes'); // Ruta desde raíz del dominio
-define('SITE_BASE_URL', '/demos/sonrisas/site');      // Ruta del sitio público
-define('CITA_DURACION_MINUTOS', 30);                   // Duración por defecto de citas
-define('TIMEZONE', 'America/Mexico_City');              // Zona horaria
+define('SITE_BASE_URL', '/demos/sonrisas/site');      // Ruta del sitio principal
+define('CITA_DURACION_MINUTOS', 30);                  // Duración por defecto de citas
+define('TIMEZONE', 'America/Mexico_City');             // Zona horaria
 ```
 
 ### Configuración de reCAPTCHA
@@ -367,7 +368,7 @@ environment:
 
 ---
 
-## Uso
+## 📱 Uso
 
 ### Pacientes — usuario final
 
@@ -430,9 +431,9 @@ docker-compose up -d # Levanta el stack local
 ### 3. Crea un branch para tu feature o fix
 
 ```bash
-# Nombra el branch de forma descriptiva
+# Para nuevas funcionalidades:
 git checkout -b feature/nombre-de-la-feature
-# o para correcciones:
+# Para correcciones:
 git checkout -b fix/descripcion-del-bug
 ```
 
@@ -441,7 +442,6 @@ git checkout -b fix/descripcion-del-bug
 ```bash
 # Ejecuta los tests antes de hacer commit
 npx playwright test
-
 # Asegúrate de que todos los tests pasen (objetivo: > 90%)
 ```
 
@@ -506,12 +506,12 @@ Un miembro del equipo revisará tu PR. Si hay comentarios, realiza los ajustes e
 
 ---
 
-## Métricas y Resultados
+## 📊 Métricas y Resultados
 
 El sistema alcanza clasificación **Elite** según DORA Metrics:
 
 | Métrica DORA | Valor del proyecto | Umbral Elite |
-|-------------|-------------------|--------------|
+|-------------|-------------------|--------------| 
 | Deployment Frequency | 3.2 deploys/día | > 1/día |
 | Lead Time for Changes | 45 minutos | < 1 hora |
 | Change Failure Rate | 6% | 0–15% |
@@ -529,12 +529,31 @@ El sistema alcanza clasificación **Elite** según DORA Metrics:
 
 ---
 
+## 🎬 Producto
+
+### Video de demostración
+
+🎥 **[Ver video de demostración en Google Drive](https://drive.google.com/drive/folders/1Ey-NsO6QnZ1MSAyrVXlEoF9SYdcQVACJ?usp=sharing)**
+
+El video muestra el flujo completo del sistema con los siguientes requerimientos cumplidos:
+
+- Registro y autenticación de paciente
+- Agendamiento de cita con validación de disponibilidad en tiempo real
+- Gestión de citas desde el panel de administrador (crear, editar, cancelar)
+- Envío automático de correos de confirmación, actualización y cancelación
+- Administración de doctores, salas y sucursales
+- Pipeline CI/CD en acción: push a main → deploy en ~2m 15s
+- Ejecución de los 10 tests E2E con Playwright y reporte de resultados
+- Containerización con Docker: stack completo levantado con un solo comando
+
 ### Acceso al sistema desplegado
 
 | Entorno | URL |
 |---------|-----|
 | Sitio público (GitHub Pages) | https://quorbitintelligence.github.io/SonrisaNorte/ |
 | Portal de pacientes (desarrollo local) | http://localhost:8080 |
+| Repositorio del proyecto | https://github.com/QuorbitIntelligence/SonrisaNorte |
+| Pipeline CI/CD (GitHub Actions) | https://github.com/QuorbitIntelligence/SonrisaNorte/actions |
 
 ---
 
@@ -558,3 +577,4 @@ El sitio público se basa en una plantilla comercial de **Zemez** — respeta su
 
 ---
 
+*Proyecto: CitasSonrisas — AneviSoft / TecMilenio · 2026*
